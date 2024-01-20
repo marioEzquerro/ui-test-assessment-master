@@ -19,8 +19,21 @@ describe('City of origin tests', () => {
       cy.wrap(randomCheckbox).click();
     })
 
-    cy.contains('View selected from "Nancy"').click()
+    cy.contains('View selected data').click()
+
     // TODO: check for proper name of selected?
     cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 1)
+  })
+
+  it('view selected employee Laura', () => {
+    cy.get('#row5treeGrid span.jqx-tree-grid-checkbox').click()
+
+    cy.contains('View selected data').click()
+
+    cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 1)
+
+    cy.get('#listBoxContentlistBoxSelected').invoke('text').then((text) => {
+      expect(text).to.equal('Laura is from Seattle');
+    })
   })
 })

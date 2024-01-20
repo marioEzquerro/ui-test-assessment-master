@@ -16,22 +16,19 @@ describe('City of origin tests', () => {
       const randomCheckbox = Cypress._.sample(checkboxes);
       cy.wrap(randomCheckbox).click();
     })
-
     cy.contains('View selected data').click()
-
     // TODO: check for proper name of selected?
     cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 1)
   })
 
   it('view selected employee Laura', () => {
     cy.get('#row5treeGrid span.jqx-tree-grid-checkbox').click()
-
     cy.contains('View selected data').click()
-
     cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 1)
-
     cy.get('#listBoxContentlistBoxSelected').invoke('text').then((text) => {
-      expect(text).to.equal('Laura is from Seattle');
+      cy.fixture('employeeData.json').then((data) => {
+        expect(text).to.equal(data.lauraLocation);
+    });
     })
   })
 
@@ -39,13 +36,10 @@ describe('City of origin tests', () => {
     cy.get('span.jqx-tree-grid-checkbox')
       .then(($checkboxes) => {
         const checkboxes = $checkboxes.toArray();
-
         // Use Lodash to select a certain number of random checkboxes
         const randomCheckboxes = Cypress._.sampleSize(checkboxes, 2);
-
         // Click the random checkboxes
         cy.wrap(randomCheckboxes).click({ multiple: true });
       });
-
   })
 })

@@ -6,7 +6,8 @@ At employees.html the following client requirement has been implemented:
 Define and implement the tests you think are necessary for the technology you prefer.
 
 # Tests
-View selected data with nothing selected
-View selected data with one item selected
-View selected from "Laura"
-View data from 2 random people
+[x] View selected data with nothing selected
+[x] View selected data with one item selected
+[x] View selected from "Laura"
+[] View data from 2 random people
+[] Deploy collapsed item and select "Robert"

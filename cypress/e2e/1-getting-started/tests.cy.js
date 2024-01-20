@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-
-
 describe('City of origin tests', () => {
   beforeEach(() => {
     cy.visit('./ui-test-assessment-master/employees.html')
@@ -35,5 +33,19 @@ describe('City of origin tests', () => {
     cy.get('#listBoxContentlistBoxSelected').invoke('text').then((text) => {
       expect(text).to.equal('Laura is from Seattle');
     })
+  })
+
+  it('view data from two random employees', () => {
+    cy.get('span.jqx-tree-grid-checkbox')
+      .then(($checkboxes) => {
+        const checkboxes = $checkboxes.toArray();
+
+        // Use Lodash to select a certain number of random checkboxes
+        const randomCheckboxes = Cypress._.sampleSize(checkboxes, 2);
+
+        // Click the random checkboxes
+        cy.wrap(randomCheckboxes).click({ multiple: true });
+      });
+
   })
 })

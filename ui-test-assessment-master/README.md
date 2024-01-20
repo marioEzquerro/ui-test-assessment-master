@@ -4,3 +4,9 @@ At employees.html the following client requirement has been implemented:
 
 # Task
 Define and implement the tests you think are necessary for the technology you prefer.
+
+# Tests
+View selected data with nothing selected
+View selected data with one item selected
+View selected from "Laura"
+View data from 2 random people

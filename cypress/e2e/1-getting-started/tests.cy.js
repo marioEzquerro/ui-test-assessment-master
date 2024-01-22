@@ -55,4 +55,17 @@ describe('City of origin tests', () => {
       })
     }) 
   })
+  
+  it.only('select and print all names and locations', () => {
+    cy.get('.jqx-tree-grid-collapse-button').click()
+    cy.get('span.jqx-tree-grid-checkbox').each(($checkboxes) => {
+      const checkboxes = $checkboxes.toArray()
+      checkboxes.forEach((checkbox) => {
+        cy.wrap(checkbox).click()
+      });
+    })
+
+    cy.contains('View selected data').click()
+    cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 9)
+  })
 })

@@ -5,9 +5,25 @@ At employees.html the following client requirement has been implemented:
 # Task
 Define and implement the tests you think are necessary for the technology you prefer.
 
+
+# Instrucctions
+Open proyect folder and install [Node JS](https://nodejs.org/en/download/current) latest version and proceed to install cypress:
+
+```shell
+npm install --save-dev cypress
+```
+
+To execute the test once all has been intalled run:
+```shell
+npx open cypress
+```
+
 # Tests
 [x] View selected data with nothing selected
 [x] View selected data with one item selected
 [x] View selected from "Laura"
 [] View data from 2 random people
-[] Deploy collapsed item and select "Robert"
+[x] Deploy collapsed item and select "Robert"
+[] Select and print all names
+[] Deselect one and print
+[] Click print  again and see no changes

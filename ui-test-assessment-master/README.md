@@ -25,5 +25,6 @@ npx open cypress
 [] View data from 2 random people
 [x] Deploy collapsed item and select "Robert"
 [] Select and print all names
+
 [] Deselect one and print
 [] Click print  again and see no changes

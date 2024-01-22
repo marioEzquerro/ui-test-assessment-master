@@ -17,6 +17,10 @@ Cypress.Commands.add("selectNothing", () => {
     cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 0)
 })
 
+Cypress.Commands.add("clickCollapseButton", () => {
+    cy.get('.jqx-tree-grid-collapse-button').click()
+})
+
 Cypress.Commands.add("selectRandomEmpoyee", () => {
     cy.get('.jqx-tree-grid-checkbox').then(($checkboxes) => {
         const checkboxes = $checkboxes.toArray()

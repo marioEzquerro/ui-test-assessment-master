@@ -20,11 +20,8 @@ npx open cypress
 
 # Tests
 [x] View selected data with nothing selected
-[x] View selected data with one item selected
+[x] View randomly selected data with one item selected
 [x] View selected from "Laura"
 [] View data from 2 random people
 [x] Deploy collapsed item and select "Robert"
-[] Select and print all names
-
-[] Deselect one and print
-[] Click print  again and see no changes
+[x] select and print all names and locations

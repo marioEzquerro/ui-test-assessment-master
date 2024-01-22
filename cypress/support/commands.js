@@ -17,10 +17,22 @@ Cypress.Commands.add("selectNothing", () => {
     cy.get('#listBoxContentlistBoxSelected').children().should('have.length', 0)
 })
 
+Cypress.Commands.add("selectRandomEmpoyee", () => {
+    cy.get('.jqx-tree-grid-checkbox').then(($checkboxes) => {
+        const checkboxes = $checkboxes.toArray()
+        const randomCheckbox = Cypress._.sample(checkboxes)
+        cy.get(randomCheckbox).click()
+    })
+})
 
-
-
-
+Cypress.Commands.add("selectMultipleRandomEmpoyee", () => {
+    cy.get('.jqx-tree-grid-checkbox')
+        .then(($checkboxes) => {
+            const checkboxes = $checkboxes.toArray()
+            const randomCheckboxes = Cypress._.sampleSize(checkboxes, 2)
+            cy.get(randomCheckboxes).click({ multiple: true })
+        })
+})
 
 Cypress.Commands.add("checkAllEmployees", () => {
     return cy.get("tbody").find("tr").find(".jqx-tree-grid-checkbox").as("employeesCheck").click({ multiple: true })
